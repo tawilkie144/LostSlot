@@ -1,0 +1,46 @@
+// Scheduling Application
+digraph {
+	"main.go" [label="main.go
+
+Entry point of the application. Initializes services, controllers, and routers."]
+	EventController [label="EventController
+
+Handles HTTP requests related to events."]
+	UserController [label="UserController
+
+Handles HTTP requests related to users."]
+	EventService [label="EventService
+
+Contains business logic for managing events."]
+	UserService [label="UserService
+
+Contains business logic for managing users."]
+	PostgresStorage [label="PostgresStorage
+
+Implements data persistence using PostgreSQL."]
+	App [label="App
+
+Main component that sets up the overall structure and includes the CalendarView component."]
+	CalendarView [label="CalendarView
+
+Displays the calendar using FullCalendar."]
+	User [label="User
+
+Represents a user of the application. Fields: ID, Name, Email."]
+	Event [label="Event
+
+Represents an event in the calendar. Fields: ID, Title, Description, StartTime, EndTime, Owner."]
+	SetupRouter [label="SetupRouter
+
+Configures the routing of HTTP requests to the appropriate controller methods."]
+	"main.go" -> EventController [label=uses]
+	"main.go" -> UserController [label=uses]
+	"main.go" -> EventService [label=uses]
+	"main.go" -> UserService [label=uses]
+	"main.go" -> PostgresStorage [label=uses]
+	EventController -> EventService [label=uses]
+	UserController -> UserService [label=uses]
+	EventService -> PostgresStorage [label=uses]
+	UserService -> PostgresStorage [label=uses]
+	App -> CalendarView [label=includes]
+}
