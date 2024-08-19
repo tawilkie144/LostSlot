@@ -55,3 +55,6 @@ go.work.sum
 
 # Editor-based Rest Client
 .idea/httpRequests
+/.logs/
+/.idea/
+/environment/
